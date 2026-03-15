@@ -42,6 +42,12 @@ For this project, the dataset was cleaned and transformed into a dimensional ana
 - dim_products
 - fact_payments
 
+### SQL Layer
+
+- `schema.sql` defines the dimensional data model used for analytics
+- `analytics_queries.sql` contains KPI and business analysis queries
+- `data_quality_checks.sql` includes validation checks for data integrity
+
 ## Status
 
 🚧 Project currently in development
