@@ -1,3 +1,4 @@
+### Revenue Analytics
 CREATE VIEWS monthly_revenue_summary AS 
 SELECT 
   DATE_TRUNC('month' as payment_date) as revenue_month,
