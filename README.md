@@ -27,6 +27,21 @@ scripts/ → data generation and pipeline scripts
 notebooks/ → exploratory analysis  
 dashboard/ → analytics dashboards
 
+## Data Source
+
+The dataset used in this project comes from the UCI Machine Learning Repository.
+
+Online Retail Dataset:
+https://archive.ics.uci.edu/ml/datasets/online+retail
+
+The raw dataset contains transactional records from a UK-based online retail store between 2010 and 2011.
+
+For this project, the dataset was cleaned and transformed into a dimensional analytics model consisting of:
+
+- dim_customers
+- dim_products
+- fact_payments
+
 ## Status
 
 🚧 Project currently in development
