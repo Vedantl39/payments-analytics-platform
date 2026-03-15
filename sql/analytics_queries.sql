@@ -45,13 +45,86 @@ LIMIT 10;
 
 
 -- =========================================
--- Revenue by Country
+-- Revenue Analytics
 -- =========================================
 
+-- Gross Payment Volume
 SELECT
-    country,
-    SUM(total_price) AS revenue,
-    COUNT(DISTINCT customer_id) AS customers
+SUM(total_price) AS gross_payment_volume
+FROM fact_payments;
+
+
+-- Monthly Revenue Trend
+SELECT
+DATE_TRUNC('month', payment_date) AS revenue_month,
+SUM(total_price) AS monthly_revenue
+FROM fact_payments
+GROUP BY 1
+ORDER BY 1;
+
+
+-- Average Order Value
+SELECT
+AVG(total_price) AS average_order_value
+FROM fact_payments;
+
+
+
+-- =========================================
+-- Customer Analytics
+-- =========================================
+
+-- Top Customers by Spending
+SELECT
+customer_id,
+SUM(total_price) AS total_spent,
+COUNT(DISTINCT payment_id) AS total_orders
+FROM fact_payments
+GROUP BY customer_id
+ORDER BY total_spent DESC
+LIMIT 10;
+
+
+
+-- Customer Lifetime Value
+SELECT
+customer_id,
+SUM(total_price) AS lifetime_value
+FROM fact_payments
+GROUP BY customer_id
+ORDER BY lifetime_value DESC;
+
+
+
+-- =========================================
+-- Product Analytics
+-- =========================================
+
+-- Top Products by Revenue
+SELECT
+p.product_name,
+SUM(f.total_price) AS product_revenue,
+SUM(f.quantity) AS units_sold
+FROM fact_payments f
+JOIN dim_products p
+ON f.product_id = p.product_id
+GROUP BY p.product_name
+ORDER BY product_revenue DESC
+LIMIT 10;
+
+
+
+-- =========================================
+-- Geographic Analytics
+-- =========================================
+
+-- Revenue by Country
+SELECT
+country,
+SUM(total_price) AS country_revenue,
+COUNT(DISTINCT customer_id) AS customers
 FROM fact_payments
 GROUP BY country
-ORDER BY revenue DESC;
+ORDER BY country_revenue DESC;
+
+
