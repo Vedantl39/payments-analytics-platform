@@ -160,6 +160,46 @@ Features include:
 
 Interactive filters allow users to explore the data dynamically.
 
+### Key Insights
+
+• The United Kingdom dominates total revenue in the dataset.
+
+• Revenue is concentrated among a relatively small number of products.
+
+• Customer spending follows a long-tail distribution where a small group of customers contribute a large share of revenue.
+
+• Monthly revenue trends highlight fluctuations in demand across the dataset period.
+
+### Challenges Faced
+
+Several technical challenges were encountered during development.
+
+**Handling Large Dataset Processing**
+
+Running joins and aggregations on the full dataset initially caused Jupyter kernels to crash due to memory usage.
+
+This was resolved by moving the analytics pipeline to a standalone Python script executed via the terminal.
+
+**Git Repository Synchronisation**
+
+Merge conflicts occurred while synchronising local and remote repositories during deployment.
+
+These conflicts were resolved by manually reviewing and merging the correct file versions.
+
+**Streamlit Deployment Issues**
+
+The dashboard initially failed to deploy due to missing dependencies.
+
+Adding the required libraries to the `requirements.txt` file resolved the deployment issue.
+
+### Run the Dashboard
+
+To run the dashboard locally:
+
+```bash
+pip3 install -r requirements.txt
+streamlit run dashboard/app.py
+
 Video
 
 https://github.com/user-attachments/assets/3eb05471-de67-4d17-b98d-f7b085c27a2c
