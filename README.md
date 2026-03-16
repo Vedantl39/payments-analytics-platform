@@ -1,71 +1,164 @@
 # Payments Analytics Platform
 
-Live Dashboard:
+Live Dashboard:  
 https://vedantl39-payments-analytics-platform-dashboardapp-otvonb.streamlit.app
 
-An end-to-end analytics project analysing payment transaction data using SQL and Python.
+An end-to-end analytics engineering project that transforms raw transaction data into actionable business insights using Python, SQL, and an interactive dashboard.
 
-This project simulates a payment processing system and builds an analytics workflow to uncover insights about transaction activity, revenue trends, refunds, and payment performance.
+The project simulates a payments analytics workflow similar to those used by modern fintech companies to analyse transaction activity, revenue performance, and customer behaviour.
 
-## Project Goals
+### Project Goals
 
 • Analyse payment volume and revenue trends  
-• Understand transaction success and failure patterns  
-• Identify merchants with high refund rates  
-• Generate operational insights from payment data  
+• Understand transaction activity over time  
+• Identify top-performing products and markets  
+• Analyse customer spending behaviour  
+• Generate operational insights from transaction data  
 
-## Tech Stack
+### Tech Stack
 
 Python  
 SQL  
-PostgreSQL  
 Pandas  
+Streamlit  
 Matplotlib  
+Git  
+Streamlit Cloud  
 
-## Project Structure
+### Project Architecture
 
-data/ → raw and generated datasets  
-sql/ → database schema and analytical queries  
-scripts/ → data generation and pipeline scripts  
-notebooks/ → exploratory analysis  
-dashboard/ → analytics dashboards
+Raw Transaction Dataset  
+↓  
+Data Cleaning & Transformation (Python)  
+↓  
+Dimensional Data Model  
+↓  
+SQL Schema Layer  
+↓  
+Python Analytics Pipeline  
+↓  
+Aggregated KPI Datasets  
+↓  
+Streamlit Dashboard  
+↓  
+Cloud Deployment  
 
-## Data Source
+### Data Source
 
-The dataset used in this project comes from the UCI Machine Learning Repository.
+The dataset used in this project comes from the **UCI Machine Learning Repository**.
 
-Online Retail Dataset:
+Online Retail Dataset:  
 https://archive.ics.uci.edu/ml/datasets/online+retail
 
-The raw dataset contains transactional records from a UK-based online retail store between 2010 and 2011.
+The dataset contains transactional records from a UK-based online retail store between **2010 and 2011**.
 
-For this project, the dataset was cleaned and transformed into a dimensional analytics model consisting of:
+Each transaction includes information about:
 
-- dim_customers
-- dim_products
-- fact_payments
+• Invoice number  
+• Product purchased  
+• Quantity  
+• Price per item  
+• Customer identifier  
+• Country  
+• Transaction timestamp  
+
+For this project, the dataset was cleaned and transformed into a **payments-style analytics dataset**.
+
+### Data Model
+
+The dataset was structured using a **dimensional data model** consisting of:
+
+**Dimension Tables**
+
+`dim_customers`  
+Stores customer identifiers and geographic information.
+
+`dim_products`  
+Stores product identifiers and product names.
+
+**Fact Table**
+
+`fact_payments`  
+Stores transaction-level payment records including:
+
+• payment date  
+• quantity  
+• unit price  
+• total transaction value  
+
+This modelling approach reduces redundancy and enables efficient analytics queries.
 
 ### SQL Layer
 
-- `schema.sql` defines the dimensional data model used for analytics
-- `analytics_queries.sql` contains KPI and business analysis queries
-- `data_quality_checks.sql` includes validation checks for data integrity
+The SQL layer defines the structure of the analytics database.
+
+`schema.sql`  
+Defines the relational database schema and table relationships.
+
+`analytics_queries.sql`  
+Contains analytical queries used to generate key business metrics.
+
+`data_quality_checks.sql`  
+Contains validation checks used to identify issues such as:
+
+• missing values  
+• duplicate transactions  
+• inconsistent identifiers  
+
+### Python Analytics Pipeline
+
+A Python analytics pipeline was implemented to process and analyse the transaction data.
+
+The script performs the following steps:
+
+1. Loads the dimension and fact tables
+2. Cleans and standardises the data
+3. Joins the tables to create an enriched analytics dataset
+4. Computes key business metrics
+5. Generates aggregated analytics outputs
+
+Key metrics calculated include:
+
+• Gross Payment Volume (GPV)  
+• Total Orders  
+• Unique Customers  
+• Average Order Value (AOV)  
+
+The pipeline also generates aggregated datasets for revenue, customer behaviour, product performance, and geographic analysis.
 
 ### Project Outputs
 
-The Python analytics layer generates the following summary tables:
+The analytics pipeline produces the following datasets:
 
-- `monthly_summary.csv`: monthly revenue, order volume, active customers, and average order value
-- `customer_summary.csv`: customer-level spend, order count, units purchased, and purchase history
-- `product_summary.csv`: product-level revenue, units sold, and order frequency
-- `country_summary.csv`: geographic revenue distribution, customer count, and average order value
+`monthly_summary.csv`  
+Monthly revenue, order volume, and average order value.
 
-### Run the Dashboard
+`customer_summary.csv`  
+Customer-level spending behaviour and purchase history.
 
-#bash
-- pip3 install -r requirements.txt
-- streamlit run dashboard/app.py
+`product_summary.csv`  
+Product-level revenue and sales performance.
 
+`country_summary.csv`  
+Revenue distribution across countries.
+
+These datasets are stored in the **output directory** and used for dashboard visualisation.
+
+### Dashboard
+
+An interactive analytics dashboard was built using **Streamlit**.
+
+The dashboard visualises key metrics and insights generated by the analytics pipeline.
+
+Features include:
+
+• KPI cards showing revenue and order metrics  
+• Monthly revenue trend analysis  
+• Top products by revenue  
+• Revenue by country  
+• Customer spending insights  
+
+Interactive filters allow users to explore the data dynamically.
 
 Video
 
