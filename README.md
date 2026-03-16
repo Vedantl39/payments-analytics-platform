@@ -59,10 +59,10 @@ The Python analytics layer generates the following summary tables:
 
 ### Run the Dashboard
 
-```bash
+#bash
 pip3 install -r requirements.txt
 streamlit run dashboard/app.py
 
-## Status
+### Status
 
 🚧 Project currently in development
