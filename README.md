@@ -57,6 +57,12 @@ The Python analytics layer generates the following summary tables:
 - `product_summary.csv`: product-level revenue, units sold, and order frequency
 - `country_summary.csv`: geographic revenue distribution, customer count, and average order value
 
+### Run the Dashboard
+
+```bash
+pip3 install -r requirements.txt
+streamlit run dashboard/app.py
+
 ## Status
 
 🚧 Project currently in development
