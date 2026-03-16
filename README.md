@@ -1,5 +1,8 @@
 # Payments Analytics Platform
 
+Live Dashboard:
+https://vedantl39-payments-analytics-platform-dashboardapp-otvonb.streamlit.app
+
 An end-to-end analytics project analysing payment transaction data using SQL and Python.
 
 This project simulates a payment processing system and builds an analytics workflow to uncover insights about transaction activity, revenue trends, refunds, and payment performance.
