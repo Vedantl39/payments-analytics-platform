@@ -48,6 +48,15 @@ For this project, the dataset was cleaned and transformed into a dimensional ana
 - `analytics_queries.sql` contains KPI and business analysis queries
 - `data_quality_checks.sql` includes validation checks for data integrity
 
+### Project Outputs
+
+The Python analytics layer generates the following summary tables:
+
+- `monthly_summary.csv`: monthly revenue, order volume, active customers, and average order value
+- `customer_summary.csv`: customer-level spend, order count, units purchased, and purchase history
+- `product_summary.csv`: product-level revenue, units sold, and order frequency
+- `country_summary.csv`: geographic revenue distribution, customer count, and average order value
+
 ## Status
 
 🚧 Project currently in development
