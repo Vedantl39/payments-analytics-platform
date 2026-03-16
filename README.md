@@ -66,6 +66,9 @@ The Python analytics layer generates the following summary tables:
 - pip3 install -r requirements.txt
 - streamlit run dashboard/app.py
 
-### Status
 
-🚧 Project currently in development
+Video
+
+https://github.com/user-attachments/assets/3eb05471-de67-4d17-b98d-f7b085c27a2c
+
+
