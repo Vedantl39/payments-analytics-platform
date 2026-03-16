@@ -60,8 +60,8 @@ The Python analytics layer generates the following summary tables:
 ### Run the Dashboard
 
 #bash
-pip3 install -r requirements.txt
-streamlit run dashboard/app.py
+- pip3 install -r requirements.txt
+- streamlit run dashboard/app.py
 
 ### Status
 
